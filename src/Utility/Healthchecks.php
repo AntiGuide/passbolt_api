@@ -172,7 +172,7 @@ class Healthchecks
                     'verify_peer_name' => false,
                 ],
             ]);
-            $url = Configure::read('App.fullBaseUrl') . '/healthcheck/status.json';
+            $url = Configure::read('App.fullBaseUrl') . Configure::read('App.base') . '/healthcheck/status.json';
             $response = @file_get_contents($url, false, $context); // phpcs:ignore
             if ($response !== false && isset($response)) {
                 $json = json_decode($response);
